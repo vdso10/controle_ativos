@@ -1,0 +1,112 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+
+  <div class='content container-fluid'>   
+
+    <form method='post'>
+      <h2>Sobre a Empresa: <%= empresa.nome %></h2>
+      
+     <hr>
+      <div class="row">
+        <div class="col form-group">
+          <label for="tipo">Tipo:</label>
+          <input name="tipo" type="text" class="form-control" id="tipo" aria-describedby="tipo" placeholder="Informe o tipo de equipamento">                
+        </div>
+        <div class="col form-group">
+          <label for="descricao">Descrição:</label>
+          <input name="descricao" type="text" class="form-control" id="descricao" aria-describedby="descricao" placeholder="Descrição do equipamento">                
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label for="disco_rigido">Disco Rigido:</label>
+          <input name="disco_rigido" type="text" class="form-control" id="disco_rigido" aria-describedby="disco_rigido" placeholder="Informe se a tecnologia e Sata ou SSD e a capacidade">                
+        </div>
+        <div class="col form-group">
+          <label for="memoria">Memória:</label>
+          <input name="memoria" type="text" class="form-control" id="memoria" aria-describedby="memoria" placeholder="Informe a quantidade de memoria ram">                
+        </div>
+        <div class="col form-group">
+          <label for="quantidade">Quantidade:</label>
+          <input name="quantidade" type="text" class="form-control" id="quantidade" aria-describedby="quantidade" placeholder="Informe a quantidade">                
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label for="observacao">Observação:</label>
+          <input name="observacao" type="text" class="form-control" id="observacao" aria-describedby="observacao" placeholder="Informe o nome do computador">                
+        </div>
+        <div class="col form-group">
+          <label for="local">Localização</label>
+          <select class="form-control" id="local" name="local">
+            <option value=""></option>
+            <option value="pdv">PDV</option>
+            <option value="escritorio">Escritorio</option>
+            <option value="administracao">Administração</option>
+            <option value="Restaurante">Restaurante</option>
+            <option value="troca_oleo">Troca de Oleo</option>
+          </select>
+        </div>
+       
+      </div>
+            
+      <input type='submit' value='Adicionar' class="btn btn-info">
+    </form>
+    <br />
+    <table class='table table-hover table-bordered'>
+      <thead>
+        <tr>
+          <th scope="col">Tipo</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Disco Rigido</th>
+          <th scope="col">Memória Ram</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Observação</th>
+          <th scope="col">Localização</th>
+        </tr>
+      </thead>
+      <% empresa.ativos.forEach(empresa => { %>
+        <tr>
+          <td>
+            <span>
+              <%= empresa.tipo %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.descricao %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.disco_rigido %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.memoria %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.quantidade %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.observacao %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.local %>
+            </span>
+          </td>         
+        </tr>
+      <% }) %>
+      </table>
+  </div>
+
+<%- include('../partials/footer') %>

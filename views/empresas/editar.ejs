@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+
+  <div class='content container-fluid'>
+    <h2>Editar Empresa</h2>
+
+    <form method='post'>      
+      <div class="form-group">
+        <label for="nome">Nome da Empresa:</label>
+        <input value="<%= empresa.nome %>" name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeHelp">               
+      </div>
+      <div class="form-group">
+        <label for="cnpj">CNPJ</label>
+        <input value="<%= empresa.cnpj %>" name="cnpj" type="text" class="form-control" id="cnpj" aria-describedby="cnpjHelp">               
+      </div>
+      <div class="form-group">
+        <label for="endereco">Endereço</label>
+        <input value="<%= empresa.endereco %>" name="endereco" type="text" class="form-control" id="endereco" aria-describedby="enderecoHelp">               
+      </div>
+      <div class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input value="<%= empresa.bairro %>" name="bairro" type="text" class="form-control" id="bairro" aria-describedby="bairroHelp">               
+      </div>
+      <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <select class="form-control" id="cidade" name="cidade">
+          <% labels.forEach(label => { %>
+            <option value="<%= label.id %>" <% if(label.id === empresa.cidade) { %> selected='selected' <% } %>><%= label.name %></option>
+          <% }) %>
+        </select>
+      </div>
+      <button class='btn btn-primary'>Salvar</button>
+    </form>
+  </div>
+
+<%- include('../partials/footer') %>

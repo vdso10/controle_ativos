@@ -1,0 +1,51 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+
+  <div class='content container-fluid'>
+    <p class="lead">Todas as Empresas Cadastradas: <a href="/empresas/nova" class='btn btn-primary'>Nova Empresa</a></p>
+    
+    <table class='table table-hover table-bordered'>
+      <thead>
+        
+        <tr>
+          <th scope="col">Nº</th>
+          <th scope="col">Empresas</th>
+          <th scope="col">Cnpj</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <% empresas.forEach(function(empresa, key) { %>
+        <tr>
+          <td>
+            <span>
+              <%= empresa[key] %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.nome %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.cnpj %>
+            </span>
+          </td>
+          <td>
+            <span>
+              <%= empresa.cidade %>
+            </span>
+          </td>
+          <td>
+            <a class='btn btn-warning' href="/empresas/editar/<%= empresa.id %>">Editar</a> | 
+            <a class='btn btn-danger' href="/empresas/excluir/<%= empresa.id %>">Excluir</a> |
+            <a class='btn btn-info' href='/empresas/info/<%= empresa.id %>'>Visualizar</a>
+          </td>
+        </tr>
+      <% }) %>
+      </table>
+  </div>
+
+<%- include('../partials/footer') %>

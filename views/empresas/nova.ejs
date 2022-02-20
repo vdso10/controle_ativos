@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+
+  <div class='content container-fluid'>
+    <h2>Cadastro de Empresa</h2>
+
+    <form method='post'>      
+      <div class="form-group">
+        <label for="nome">Nome da Empresa:</label>
+        <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeHelp" placeholder="Informe o nome">        
+        
+      </div>
+
+      <div class="form-group">
+        <label for="cnpj">CNPJ</label>
+        <input name="cnpj" type="text" class="form-control" id="cnpj" aria-describedby="cnpjHelp" placeholder="Informe o cnpj">               
+      </div>
+      <div class="form-group">
+        <label for="endereco">Endereço</label>
+        <input name="endereco" type="text" class="form-control" id="endereco" aria-describedby="enderecoHelp" placeholder="Informe o endereço">               
+      </div>
+      <div class="form-group">
+        <label for="bairro">Bairro:</label>
+        <input name="bairro" type="text" class="form-control" id="bairro" aria-describedby="bairroHelp" placeholder="Informe o bairro">               
+      </div>
+      <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <select class="form-control" id="cidade" name="cidade">
+          <option value="Betim">Betim</option>
+          <option value="Belo Horizonte">Belo Horizonte</option>
+          <option value="Contagem">Contagem</option>
+          <option value="Esmeraldas">Esmeraldas</option>
+          <option value="Nova Lima">Nova Lima</option>
+        </select>
+      </div>
+      <button class='btn btn-primary'>Salvar</button>
+    </form>
+  </div>
+
+<%- include('../partials/footer') %>
